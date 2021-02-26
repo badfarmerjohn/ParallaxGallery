@@ -1,0 +1,37 @@
+body {
+	margin: 0;
+}
+
+.parent_container {
+	position: absolute;
+	background-color: #101010;
+	width: 100%;
+	height: 100%;
+	color: white;
+	overflow: hidden;
+}
+
+.center_piece_text {
+	font-family: "Century Gothic";
+	font-size: 4em; 
+}
+
+.moveable {
+	position: absolute;
+	min-width: fit-content;
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.moveable > img {
+	position: relative;
+	width: 100%;
+}
+
+.moveable_caption {
+	font-family: "Century Gothic";
+	font-weight: bold;
+	font-size: 1em; 
+	padding: 8% 0;
+	text-align: center;
+	color: #BBBBBB;
+}

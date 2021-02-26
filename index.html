@@ -1,0 +1,110 @@
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="mover.js"></script>
+
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const parent_container = $(".parent_container")[0];
+			const parallax_container = new ParallaxContainer(parent_container);
+			const mouse_controller = new MouseCameraController(parallax_container);
+
+			parallax_container.resume();
+			document.body.onkeydown = function(event) {
+				if (event.key === ' ') {
+					if (parallax_container.is_running()) {
+						parallax_container.pause();
+					} else {
+						parallax_container.resume();
+					}
+				}
+			};
+		});
+	</script>
+</head>
+<body>
+	<!-- max_scroll_x/y is adjustable -->
+	<div class="parent_container" max_scroll_x="1", max_scroll_y="1" blur_threshold_z="1.3" blur_factor="1" scale_on_hover="false ">
+		<!--
+			(-1, 0) represents the center of the left edge of the parent container.
+			(0, -1) represents the center of the top edge of the parent container.
+			(1, 0) represents the center of the right edge of the parent container.
+			(0, 1) represents the center of the bottom edge of the parent container.
+			Elements are placed based on their center and can be placed offscreen.
+			z_offset is "distance" (into the screen) from camera, which is at z_offset=0.
+		-->
+		<div class="moveable no_hover" id="center_piece" start_x="0" start_y="0" z_offset="1.1">
+			<span class="center_piece_text">Moveable</span>
+		</div>
+		<div class="moveable" id="doge1" start_x="-0.2" start_y="-0.3" z_offset="1.35">
+			<img src="images/doge1.jpg">
+			<div class="moveable_caption">Doge go WOOF!</div>
+		</div>
+		<div class="moveable" id="doge2" start_x="0" start_y="0.4" z_offset="1.4">
+			<img src="images/doge2.jpg">
+			<div class="moveable_caption">Doge go B0RK!</div>
+		</div>
+		<div class="moveable" id="spongebob1" start_x="-0.8" start_y="0.5" z_offset="1.35">
+			<img src="images/spongebob1.jpg">
+			<div class="moveable_caption">The Bob</div>
+		</div>
+		<div class="moveable" id="spongebob2" start_x="0.75" start_y="-0.3" z_offset="1.4">
+			<img src="images/spongebob2.jpg">
+			<div class="moveable_caption">I'm fine.</div>
+		</div>
+		<div class="moveable" id="this_is_fine" start_x="0.8" start_y="0.2" z_offset="1.15">
+			<img src="images/this_is_fine.jpg">
+			<div class="moveable_caption">this is fine.</div> 
+		</div>
+		<div class="moveable" id="go_bears" start_x="-1.1" start_y="-0.1" z_offset="1.35">
+			<img src="images/go_bears.jpg">
+			<div class="moveable_caption">everythings FINE.</div>
+		</div>
+		<div class="moveable" id="tuxedo_pooh" start_x="-1.4" start_y="0.25" z_offset="1.15">
+			<img src="images/tuxedo_pooh.jpg">
+			<div class="moveable_caption">tuxedo everything</div>
+		</div>
+		<div class="moveable" id="shut_up" start_x="1.2" start_y="-0.7" z_offset="1.4">
+			<img src="images/shut_up.jpg">
+			<div class="moveable_caption">shut up and take my money</div>
+		</div>
+		<div class="moveable" id="dinner_cat" start_x="-1.7" start_y="-0.4" z_offset="1.15">
+			<img src="images/dinner_cat.png">
+			<div class="moveable_caption">you were saying...</div>
+		</div>
+		<div class="moveable" id="confused_monkey" start_x="0.25" start_y="0.85" z_offset="1.35">
+			<img src="images/confused_monkey.jpg">
+			<div class="moveable_caption">bruh</div>
+		</div>
+		<div class="moveable" id="inhaling_seagull" start_x="1.6" start_y="-0.2" z_offset="1.2">
+			<img src="images/inhaling_seagull.jpg">
+			<div class="moveable_caption">asdfghjkl;</div>
+		</div>
+		<div class="moveable" id="incredibles" start_x="1.3" start_y="0.75" z_offset="1.45">
+			<img src="images/incredibles.png">
+			<div class="moveable_caption">let it BURN</div>
+		</div>
+		<div class="moveable" id="peppa_pig_phone" start_x="0.3" start_y="-0.75" z_offset="1.15">
+			<img src="images/peppa_pig_phone.jpg">
+			<div class="moveable_caption">it was in at moment when she realized...</div>
+		</div>
+		<div class="moveable" id="patrick_surprised" start_x="-0.6" start_y="1" z_offset="1.3">
+			<img src="images/patrick_surprised.jpg">
+			<div class="moveable_caption">derrrh</div>
+		</div>
+		<div class="moveable" id="arthur_squint" start_x="-1.35" start_y="0.75" z_offset="1.2">
+			<img src="images/arthur_squint.jpg">
+			<div class="moveable_caption">come again...?</div>
+		</div>
+		<div class="moveable" id="zootopia_sloth" start_x="-0.7" start_y="-0.75" z_offset="1.25">
+			<img src="images/zootopia_sloth.jpg">
+			<div class="moveable_caption">imma have to get back to you on that one</div>
+		</div>
+		<div class="moveable" id="monsters_inc" start_x="-2.1" start_y="0.1" z_offset="1.4">
+			<img src="images/monsters_inc.jpg">
+			<div class="moveable_caption">brah</div>
+		</div>
+	</div>
+</body>
+</html>
